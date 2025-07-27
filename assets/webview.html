@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="URL_JSDOS_JS"></script>
+    <link rel="stylesheet" href="URL_JSDOS_CSS" />
+  </head>
+  <body>
+    <div id="jsbox"></div>
+  </body>
+  <script>
+    const cache_wdosboxJs = URL_JSDOS_WDOSBOX_JS;
+    const RealXMLHttpRequest = window.XMLHttpRequest;
+    window.XMLHttpRequest = class extends RealXMLHttpRequest {
+      open(method, url) {
+        if (url === "wdosbox.js") return super.open(method, cache_wdosboxJs);
+        if (url === "wdosbox.wasm") return super.open(method, URL_JSDOS_WDOSBOX_WASM);
+        return super.open(method, url);
+      }
+    };
+    const RealWorker = window.Worker;
+    window.Worker = class extends RealWorker {
+      constructor(url) {
+        if (url === "wdosbox.js") return super(cache_wdosboxJs);
+        return super(url);
+      }
+    };
+  </script>
+  <script>
+    const element = document.createElement("style");
+    element.textContent = REP_WEBVIEW_CSS;
+    document.head.appendChild(element);
+  </script>
+  <script>
+    Dos(document.getElementById("jsbox"), {
+      style: "none",
+      noSideBar: true,
+      noFullscreen: true,
+      noSocialLinks: true
+    }).run(URL_GAME_LINK);
+  </script>
+</html>
