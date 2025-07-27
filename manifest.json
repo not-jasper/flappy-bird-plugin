@@ -1,0 +1,10 @@
+{
+  "id": "flappy.bird.plugin",
+  "name": "Flappy Bird",
+  "version": "1.0.0",
+  "description": "Launches a webview to play Flappy Bird.",
+  "author": "jxsper",
+  "vendetta": {
+    "main": "index.js"
+  }
+}
