@@ -1,10 +1,14 @@
 {
-  "id": "flappy.bird.plugin",
   "name": "Flappy Bird",
-  "version": "1.0.0",
-  "description": "Launches a webview to play Flappy Bird.",
-  "author": "jxsper",
+  "description": "Play Flappy Bird inside Discord via WebView.",
+  "authors": [
+    {
+      "name": "not-jasper",
+      "id": "69420"
+    }
+  ],
+  "main": "src/index.ts",
   "vendetta": {
-    "main": "index.js"
+    "icon": "Gamepad2"
   }
 }
